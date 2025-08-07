@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Analysis & Electrostatics Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .quiz-container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .options button {
+            display: block;
+            margin: 5px auto;
+            padding: 10px;
+            width: 80%;
+            cursor: pointer;
+        }
+        .correct { background-color: lightgreen; }
+        .wrong { background-color: lightcoral; }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Vector Analysis & Electrostatics Quiz</h2>
+        <div id="question-container"></div>
+        <button onclick="nextQuestion()">Next Question</button>
+    </div>
+    
+    <script>
+        const quizData = [
+            {
+                question: "Which of the following is a scalar quantity?",
+                options: ["Displacement", "Velocity", "Work", "Acceleration"],
+                answer: 2
+            },
+            {
+                question: "The gradient of a scalar field gives:",
+                options: ["A scalar quantity", "A vector quantity", "A tensor quantity", "A constant"],
+                answer: 1
+            },
+            {
+                question: "Which theorem relates the flux of a vector field through a closed surface to the divergence of the field inside the surface?",
+                options: ["Stokes' theorem", "Green’s theorem", "Gauss's divergence theorem", "Fundamental theorem of calculus"],
+                answer: 2
+            },
+            {
+                question: "In cylindrical coordinates, which of the following is NOT a coordinate variable?",
+                options: ["r (radial distance)", "θ (azimuthal angle)", "φ (inclination angle)", "z (height)"],
+                answer: 2
+            },
+            {
+                question: "Gauss’s law states that the total electric flux through a closed surface is proportional to:",
+                options: ["The charge enclosed", "The total charge in the universe", "The electric potential at a point", "The divergence of the electric field"],
+                answer: 0
+            },
+            {
+                question: "Which of the following is true for a perfect conductor in electrostatics?",
+                options: ["The electric field inside is zero", "The electric field inside is constant but nonzero", "The potential varies inside the conductor", "The conductor cannot be polarized"],
+                answer: 0
+            },
+            {
+                question: "The electric potential due to a dipole varies as:",
+                options: ["1/r", "1/r²", "1/r³", "1/r⁴"],
+                answer: 2
+            },
+            {
+                question: "Which equation governs electrostatics in free space?",
+                options: ["Laplace’s equation", "Poisson’s equation", "Maxwell’s first equation", "Faraday’s law"],
+                answer: 0
+            },
+            {
+                question: "The uniqueness theorem in electrostatics states that:",
+                options: ["The potential in a region is uniquely determined if the charge distribution is known", "The potential in a region depends on multiple possible solutions", "The field is independent of boundary conditions", "The charge cannot affect the potential"],
+                answer: 0
+            },
+            {
+                question: "Image theory is used to:",
+                options: ["Solve problems involving conductors by replacing them with imaginary charges", "Calculate the divergence of a vector field", "Determine the curl of the electric field", "Compute the capacitance of a parallel plate capacitor"],
+                answer: 0
+            }
+        ];
+        
+        let currentQuestionIndex = 0;
+        function loadQuestion() {
+            const questionContainer = document.getElementById("question-container");
+            const currentQuestion = quizData[currentQuestionIndex];
+            
+            questionContainer.innerHTML = `<div class='question'>${currentQuestion.question}</div>`;
+            
+            let optionsHTML = "";
+            currentQuestion.options.forEach((option, index) => {
+                optionsHTML += `<button onclick='checkAnswer(${index})'>${option}</button>`;
+            });
+            
+            questionContainer.innerHTML += `<div class='options'>${optionsHTML}</div>`;
+        }
+        
+        function checkAnswer(selectedIndex) {
+            const buttons = document.querySelectorAll(".options button");
+            if (selectedIndex === quizData[currentQuestionIndex].answer) {
+                buttons[selectedIndex].classList.add("correct");
+            } else {
+                buttons[selectedIndex].classList.add("wrong");
+                buttons[quizData[currentQuestionIndex].answer].classList.add("correct");
+            }
+            buttons.forEach(button => button.disabled = true);
+        }
+        
+        function nextQuestion() {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                document.getElementById("question-container").innerHTML = "<h3>Quiz Completed!</h3>";
+            }
+        }
+        
+        loadQuestion();
+    </script>
+</body>
+</html>
