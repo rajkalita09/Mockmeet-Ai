@@ -219,17 +219,15 @@ export default function Home() {
           </h2>
           <p className="leading-relaxed text-lg font-medium text-gray-700">
             <span className="block mb-4">
-              This platform is developed by <strong>Raj Kalita</strong>, a passionate Data Science and AI student.  It’s designed to help candidates and job seekers gain confidence through realistic mock interviews and instant AI feedback.
+              This platform is developed by <strong style={{ color: 'blue' }}>Raj Kalita</strong>, a passionate Data Science and AI student.  It offers realistic mock interviews with instant AI feedback to help candidates build confidence.
             </span>
             <span className="block mb-4">
-              We believe that preparation should be empowering, not stressful. That’s why we focus on delivering a supportive and intelligent interview experience.
-            </span>
-            <span className="block mb-4"> 
-              Your journey is yours alone — no judgments, no pressure.
+              Designed to make interview preparation stress-free and effective — no pressure, no judgments.
               Just you, your skills, and our AI helping you shine.
             </span>
+            
             <span>
-              We strictly value your <strong>data privacy</strong>. All your responses and feedback are encrypted, stored securely,
+               Your <strong style={{ color: 'green' }}>Data Privacy</strong> matters. All your responses and feedback are encrypted, stored securely,
               and never shared with third parties.
             </span>
           </p>

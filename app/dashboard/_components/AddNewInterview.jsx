@@ -142,7 +142,7 @@ IMPORTANT:
                 Job Role / Position
               </label>
               <Input
-                placeholder="e.g. Backend Developer"
+                placeholder="e.g. Data Analyst"
                 required
                 className="rounded-lg border-gray-300 shadow-sm focus:ring-2 focus:ring-purple-500"
                 onChange={(e) => setJobPosition(e.target.value)}
@@ -155,7 +155,7 @@ IMPORTANT:
                 Job Description
               </label>
               <Textarea
-                placeholder="e.g. Build APIs, integrate databases, etc."
+                placeholder="e.g. Analyze data, reports, statistics, integrate databases, etc."
                 required
                 className="rounded-lg border-gray-300 shadow-sm focus:ring-2 focus:ring-purple-500"
                 onChange={(e) => setJobDesc(e.target.value)}

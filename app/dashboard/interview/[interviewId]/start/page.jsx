@@ -174,9 +174,16 @@ function StartInterview({ params: paramsPromise }) {
                 Yes, Leave
               </Button>
             </div>
+            
           </div>
+          
         </div>
+        
       )}
+      {/* Footer Line */}
+      <p className="text-center text-sm text-gray-500 mt-12">
+        © 2025 Mockmeet-Ai. All rights reserved.
+      </p>
     </div>
   );
 }
