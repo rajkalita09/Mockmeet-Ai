@@ -1,24 +1,26 @@
+// middleware.ts
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-const isProtectedRoute = createRouteMatcher(['/dashboard(.*)', '/forum(.*)']);
+// Define your protected routes
+const isProtectedRoute = createRouteMatcher([
+  '/dashboard(.*)',
+  '/forum(.*)',
+]);
 
 export default clerkMiddleware(async (auth, req) => {
-  // Run Clerk's normal protection for protected routes
+  // Protect only specific routes
   if (isProtectedRoute(req)) {
     await auth.protect();
   }
 
-  // 🔹 Force remove Clerk's noindex header for ALL pages
-  const res = await fetch(req.url); // Forward the request
-  const newHeaders = new Headers(res.headers);
-  newHeaders.delete('x-robots-tag');
-  return new Response(res.body, {
-    status: res.status,
-    statusText: res.statusText,
-    headers: newHeaders,
-  });
+  // ✅ Completely disable Clerk's automatic noindex injection
+  // This ensures no 'X-Robots-Tag: noindex' is added
+  const res = new Response();
+  res.headers.delete("X-Robots-Tag"); // Remove if already set by Clerk
+  return res;
 });
 
+// ✅ Make sure matcher still matches all pages & APIs you need
 export const config = {
   matcher: [
     // Skip Next.js internals and static files
