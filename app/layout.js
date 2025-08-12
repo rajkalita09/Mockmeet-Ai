@@ -28,7 +28,9 @@ export default function RootLayout({ children }) {
         <head>
           {/* Force allow indexing to override Clerk's noindex */}
           <meta name="robots" content="index, follow" />
-        </head>
+           <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+          <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />  
+          </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
