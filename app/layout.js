@@ -28,9 +28,15 @@ export default function RootLayout({ children }) {
         <head>
           {/* Force allow indexing to override Clerk's noindex */}
           <meta name="robots" content="index, follow" />
-           <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-          <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />  
-          </head>
+
+          {/* Browser + Google-friendly favicon setup */}
+          <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+          <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+          {/* Additional PNG for Google Search */}
+          <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+          <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
+        </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
