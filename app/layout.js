@@ -26,16 +26,30 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <head>
-          {/* Force allow indexing to override Clerk's noindex */}
+          {/* ✅ Google AdSense verification */}
+          <meta
+            name="google-adsense-account"
+            content="ca-pub-8050556044448562"
+          />
+
+          {/* ✅ Allow indexing (Clerk sometimes adds noindex) */}
           <meta name="robots" content="index, follow" />
 
-          {/* Browser + Google-friendly favicon setup */}
+          {/* ✅ Favicons */}
           <link rel="icon" href="/favicon.ico" type="image/x-icon" />
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-
-          {/* Additional PNG for Google Search */}
-          <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
-          <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/favicon-192x192.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="512x512"
+            href="/favicon-512x512.png"
+          />
         </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
